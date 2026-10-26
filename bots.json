@@ -1,0 +1,807 @@
+{
+  "version": "bots-2026-10-25",
+  "effective_from": "2026-10-25",
+  "order": "The first bot whose ua_pattern matches wins. Patterns are JavaScript regular expressions; flags default to \"i\".",
+  "feeds": [
+    {
+      "id": "openai-gptbot",
+      "operator": "OpenAI",
+      "url": "https://openai.com/gptbot.json"
+    },
+    {
+      "id": "openai-searchbot",
+      "operator": "OpenAI",
+      "url": "https://openai.com/searchbot.json"
+    },
+    {
+      "id": "openai-chatgpt-user",
+      "operator": "OpenAI",
+      "url": "https://openai.com/chatgpt-user.json"
+    },
+    {
+      "id": "openai-adsbot",
+      "operator": "OpenAI",
+      "url": "https://openai.com/adsbot.json"
+    },
+    {
+      "id": "anthropic",
+      "operator": "Anthropic",
+      "url": "https://claude.com/crawling/bots.json"
+    },
+    {
+      "id": "perplexity-bot",
+      "operator": "Perplexity",
+      "url": "https://www.perplexity.com/perplexitybot.json"
+    },
+    {
+      "id": "perplexity-user",
+      "operator": "Perplexity",
+      "url": "https://www.perplexity.com/perplexity-user.json"
+    },
+    {
+      "id": "google-googlebot",
+      "operator": "Google",
+      "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json"
+    },
+    {
+      "id": "google-special-crawlers",
+      "operator": "Google",
+      "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json"
+    },
+    {
+      "id": "google-user-triggered",
+      "operator": "Google",
+      "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json"
+    },
+    {
+      "id": "google-user-triggered-google",
+      "operator": "Google",
+      "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json"
+    },
+    {
+      "id": "bing-bingbot",
+      "operator": "Microsoft",
+      "url": "https://www.bing.com/toolbox/bingbot.json"
+    },
+    {
+      "id": "apple-applebot",
+      "operator": "Apple",
+      "url": "https://search.developer.apple.com/applebot.json"
+    },
+    {
+      "id": "duckduckgo-duckduckbot",
+      "operator": "DuckDuckGo",
+      "url": "https://duckduckgo.com/duckduckbot.json"
+    },
+    {
+      "id": "commoncrawl-ccbot",
+      "operator": "Common Crawl",
+      "url": "https://index.commoncrawl.org/ccbot.json"
+    },
+    {
+      "id": "parallel-shapbot",
+      "operator": "Parallel Web Systems",
+      "url": "https://docs.parallel.ai/resources/shapbot.json"
+    }
+  ],
+  "bots": [
+    {
+      "id": "gptbot",
+      "name": "GPTBot",
+      "operator": "OpenAI",
+      "category": "training",
+      "ua_pattern": "GPTBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "openai-gptbot"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://developers.openai.com/api/docs/bots"
+    },
+    {
+      "id": "oai-searchbot",
+      "name": "OAI-SearchBot",
+      "operator": "OpenAI",
+      "category": "search_index",
+      "ua_pattern": "OAI-SearchBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "openai-searchbot"
+      ],
+      "confidence_level": "high",
+      "needs_review": true,
+      "doc_url": "https://developers.openai.com/api/docs/bots"
+    },
+    {
+      "id": "chatgpt-user",
+      "name": "ChatGPT-User",
+      "operator": "OpenAI",
+      "category": "user_fetch",
+      "ua_pattern": "ChatGPT-User",
+      "probe_ua": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "openai-chatgpt-user"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://developers.openai.com/api/docs/bots"
+    },
+    {
+      "id": "oai-adsbot",
+      "name": "OAI-AdsBot",
+      "operator": "OpenAI",
+      "category": "other",
+      "ua_pattern": "OAI-AdsBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "openai-adsbot"
+      ],
+      "confidence_level": "high",
+      "needs_review": true,
+      "doc_url": "https://developers.openai.com/api/docs/bots"
+    },
+    {
+      "id": "claude-searchbot",
+      "name": "Claude-SearchBot",
+      "operator": "Anthropic",
+      "category": "search_index",
+      "ua_pattern": "Claude-SearchBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "anthropic"
+      ],
+      "confidence_level": "operator",
+      "doc_url": "https://support.claude.com/en/articles/8896518"
+    },
+    {
+      "id": "claude-user",
+      "name": "Claude-User",
+      "operator": "Anthropic",
+      "category": "user_fetch",
+      "ua_pattern": "Claude-User",
+      "probe_ua": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-User/1.0; +claude-user@anthropic.com)",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "anthropic"
+      ],
+      "confidence_level": "operator",
+      "needs_review": false,
+      "doc_url": "https://support.claude.com/en/articles/8896518"
+    },
+    {
+      "id": "claudebot",
+      "name": "ClaudeBot",
+      "operator": "Anthropic",
+      "category": "training",
+      "ua_pattern": "ClaudeBot/",
+      "flags": "",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "anthropic"
+      ],
+      "confidence_level": "operator",
+      "doc_url": "https://support.claude.com/en/articles/8896518"
+    },
+    {
+      "id": "anthropic-ai",
+      "name": "anthropic-ai",
+      "operator": "Anthropic",
+      "category": "training",
+      "ua_pattern": "^anthropic-ai",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "anthropic"
+      ],
+      "confidence_level": "operator",
+      "needs_review": true,
+      "doc_url": "https://support.claude.com/en/articles/8896518"
+    },
+    {
+      "id": "perplexity-user",
+      "name": "Perplexity-User",
+      "operator": "Perplexity",
+      "category": "user_fetch",
+      "ua_pattern": "Perplexity-User",
+      "probe_ua": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "perplexity-user"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://docs.perplexity.ai/guides/bots"
+    },
+    {
+      "id": "perplexitybot",
+      "name": "PerplexityBot",
+      "operator": "Perplexity",
+      "category": "search_index",
+      "ua_pattern": "PerplexityBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "perplexity-bot"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://docs.perplexity.ai/guides/bots"
+    },
+    {
+      "id": "google-extended",
+      "name": "Google-Extended (claimed)",
+      "operator": "Google",
+      "category": "training",
+      "ua_pattern": "Google-Extended",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "google-googlebot",
+        "google-special-crawlers",
+        "google-user-triggered",
+        "google-user-triggered-google"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#google-extended"
+    },
+    {
+      "id": "gemini-deep-research",
+      "name": "Gemini-Deep-Research",
+      "operator": "Google",
+      "category": "user_fetch",
+      "ua_pattern": "Gemini-Deep-Research",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "google-user-triggered-google",
+        "google-user-triggered"
+      ],
+      "confidence_level": "high",
+      "needs_review": true,
+      "doc_url": "https://developers.google.com/search/docs/crawling-indexing/google-user-triggered-fetchers"
+    },
+    {
+      "id": "google-cloudvertexbot",
+      "name": "Google-CloudVertexBot",
+      "operator": "Google",
+      "category": "other",
+      "ua_pattern": "Google-CloudVertexBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "google-special-crawlers"
+      ],
+      "confidence_level": "high",
+      "needs_review": true,
+      "doc_url": "https://developers.google.com/search/docs/crawling-indexing/google-special-case-crawlers"
+    },
+    {
+      "id": "googleother",
+      "name": "GoogleOther",
+      "operator": "Google",
+      "category": "other",
+      "ua_pattern": "GoogleOther",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "google-googlebot",
+        "google-special-crawlers"
+      ],
+      "confidence_level": "high",
+      "needs_review": true,
+      "doc_url": "https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#googleother"
+    },
+    {
+      "id": "googlebot",
+      "name": "Googlebot",
+      "operator": "Google",
+      "category": "search_index",
+      "ua_pattern": "Googlebot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "google-googlebot"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://developers.google.com/search/docs/crawling-indexing/verifying-googlebot"
+    },
+    {
+      "id": "google-inspectiontool",
+      "name": "Google-InspectionTool",
+      "operator": "Google",
+      "category": "search_index",
+      "ua_pattern": "Google-InspectionTool",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "google-googlebot"
+      ],
+      "confidence_level": "high",
+      "needs_review": true,
+      "doc_url": "https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#google-inspectiontool"
+    },
+    {
+      "id": "bingbot",
+      "name": "bingbot",
+      "operator": "Microsoft",
+      "category": "search_index",
+      "ua_pattern": "bingbot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "bing-bingbot"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://www.bing.com/webmasters/help/how-to-verify-bingbot-3905dc26"
+    },
+    {
+      "id": "applebot-extended",
+      "name": "Applebot-Extended (claimed)",
+      "operator": "Apple",
+      "category": "training",
+      "ua_pattern": "Applebot-Extended",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "apple-applebot"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://support.apple.com/en-us/119829"
+    },
+    {
+      "id": "applebot",
+      "name": "Applebot",
+      "operator": "Apple",
+      "category": "search_index",
+      "ua_pattern": "Applebot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "apple-applebot"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://support.apple.com/en-us/119829"
+    },
+    {
+      "id": "duckduckbot",
+      "name": "DuckDuckBot",
+      "operator": "DuckDuckGo",
+      "category": "search_index",
+      "ua_pattern": "DuckDuckBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "duckduckgo-duckduckbot"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://duckduckgo.com/duckduckgo-help-pages/results/duckduckbot"
+    },
+    {
+      "id": "ccbot",
+      "name": "CCBot",
+      "operator": "Common Crawl",
+      "category": "training",
+      "ua_pattern": "CCBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "commoncrawl-ccbot"
+      ],
+      "confidence_level": "high",
+      "doc_url": "https://commoncrawl.org/ccbot"
+    },
+    {
+      "id": "meta-externalagent",
+      "name": "meta-externalagent",
+      "operator": "Meta",
+      "category": "training",
+      "ua_pattern": "meta-externalagent",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers"
+    },
+    {
+      "id": "meta-externalfetcher",
+      "name": "meta-externalfetcher",
+      "operator": "Meta",
+      "category": "user_fetch",
+      "ua_pattern": "meta-externalfetcher",
+      "probe_ua": "meta-externalfetcher/1.1",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers"
+    },
+    {
+      "id": "meta-webindexer",
+      "name": "meta-webindexer",
+      "operator": "Meta",
+      "category": "search_index",
+      "ua_pattern": "meta-webindexer",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers"
+    },
+    {
+      "id": "meta-externalads",
+      "name": "meta-externalads",
+      "operator": "Meta",
+      "category": "other",
+      "ua_pattern": "meta-externalads",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers"
+    },
+    {
+      "id": "facebookexternalhit",
+      "name": "facebookexternalhit",
+      "operator": "Meta",
+      "category": "other",
+      "ua_pattern": "facebookexternalhit",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers"
+    },
+    {
+      "id": "amazonbot",
+      "name": "Amazonbot",
+      "operator": "Amazon",
+      "category": "training",
+      "ua_pattern": "Amazonbot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": "https://developer.amazon.com/amazonbot"
+    },
+    {
+      "id": "bytespider",
+      "name": "Bytespider",
+      "operator": "ByteDance",
+      "category": "training",
+      "ua_pattern": "Bytespider",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "mistralai-user",
+      "name": "MistralAI-User",
+      "operator": "Mistral AI",
+      "category": "user_fetch",
+      "ua_pattern": "MistralAI-User",
+      "probe_ua": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots)",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": "https://docs.mistral.ai/robots"
+    },
+    {
+      "id": "youbot",
+      "name": "YouBot",
+      "operator": "You.com",
+      "category": "search_index",
+      "ua_pattern": "YouBot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": "https://docs.you.com/youbot"
+    },
+    {
+      "id": "exasearchbot",
+      "name": "ExaSearchBot",
+      "operator": "Exa",
+      "category": "search_index",
+      "ua_pattern": "ExaSearchBot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": "https://crawler.exa.ai/"
+    },
+    {
+      "id": "cohere-ai",
+      "name": "cohere-ai",
+      "operator": "Cohere",
+      "category": "unknown",
+      "ua_pattern": "cohere-ai",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "xai-searchbot",
+      "name": "xAI-SearchBot (claimed)",
+      "operator": "xAI",
+      "category": "unknown",
+      "ua_pattern": "xAI-SearchBot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "grok",
+      "name": "GrokBot / xAI-Grok (claimed)",
+      "operator": "xAI",
+      "category": "unknown",
+      "ua_pattern": "GrokBot|xAI-Grok",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "deepseekbot",
+      "name": "DeepSeekBot (claimed)",
+      "operator": "DeepSeek",
+      "category": "unknown",
+      "ua_pattern": "DeepSeekBot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "qwenbot",
+      "name": "Qwenbot (claimed)",
+      "operator": "Alibaba",
+      "category": "unknown",
+      "ua_pattern": "Qwenbot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "chatglm-spider",
+      "name": "ChatGLM-Spider (claimed)",
+      "operator": "Zhipu AI",
+      "category": "unknown",
+      "ua_pattern": "ChatGLM-Spider",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "diffbot",
+      "name": "Diffbot",
+      "operator": "Diffbot",
+      "category": "unknown",
+      "ua_pattern": "Diffbot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "shapbot",
+      "name": "ShapBot",
+      "operator": "Parallel Web Systems",
+      "category": "search_index",
+      "ua_pattern": "ShapBot",
+      "verify_method": "ip_feed",
+      "feeds": [
+        "parallel-shapbot"
+      ],
+      "confidence_level": "high",
+      "needs_review": false,
+      "doc_url": "https://docs.parallel.ai/resources/crawler"
+    },
+    {
+      "id": "shap-user",
+      "name": "Shap-User",
+      "operator": "Parallel Web Systems",
+      "category": "user_fetch",
+      "ua_pattern": "Shap-User",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": false,
+      "doc_url": "https://parallel.ai/parallel-web-systems-bots"
+    },
+    {
+      "id": "tiktokspider",
+      "name": "TikTokSpider",
+      "operator": "ByteDance",
+      "category": "unknown",
+      "ua_pattern": "TikTokSpider",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": ""
+    },
+    {
+      "id": "coccocbot",
+      "name": "coccocbot",
+      "operator": "Cốc Cốc",
+      "category": "search_index",
+      "ua_pattern": "coccocbot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://help.coccoc.com/searchengine"
+    },
+    {
+      "id": "yandexbot",
+      "name": "YandexBot",
+      "operator": "Yandex",
+      "category": "search_index",
+      "ua_pattern": "YandexBot|YandexMobileBot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://yandex.com/support/webmaster/robot-workings/check-yandex-robots.html"
+    },
+    {
+      "id": "petalbot",
+      "name": "PetalBot",
+      "operator": "Huawei",
+      "category": "search_index",
+      "ua_pattern": "PetalBot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://webmaster.petalsearch.com/site/petalbot"
+    },
+    {
+      "id": "semrushbot",
+      "name": "SemrushBot",
+      "operator": "Semrush",
+      "category": "other",
+      "ua_pattern": "SemrushBot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://www.semrush.com/bot/"
+    },
+    {
+      "id": "ahrefsbot",
+      "name": "AhrefsBot",
+      "operator": "Ahrefs",
+      "category": "other",
+      "ua_pattern": "AhrefsBot|AhrefsSiteAudit",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://ahrefs.com/robot"
+    },
+    {
+      "id": "dotbot",
+      "name": "DotBot",
+      "operator": "Moz",
+      "category": "other",
+      "ua_pattern": "DotBot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://moz.com/help/moz-procedures/crawlers/dotbot"
+    },
+    {
+      "id": "mj12bot",
+      "name": "MJ12bot",
+      "operator": "Majestic",
+      "category": "other",
+      "ua_pattern": "MJ12bot",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://mj12bot.com/"
+    },
+    {
+      "id": "barkrowler",
+      "name": "Barkrowler",
+      "operator": "Babbar",
+      "category": "other",
+      "ua_pattern": "Barkrowler",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://babbar.tech/crawler"
+    },
+    {
+      "id": "paloalto-xpanse",
+      "name": "Palo Alto Networks Xpanse",
+      "operator": "Palo Alto Networks",
+      "category": "other",
+      "ua_pattern": "Palo Alto Networks",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "doc_url": "https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity"
+    },
+    {
+      "id": "pw-trial-compare",
+      "name": "pw-trial-compare (our own tool)",
+      "operator": "migurei (ours)",
+      "category": "other",
+      "ua_pattern": "^pw-trial-compare/",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "high",
+      "needs_review": false,
+      "doc_url": "https://git.hblab.vn/gianglt/parallelweb"
+    },
+    {
+      "id": "migurei-ci-deploy-check",
+      "name": "migurei-ci-deploy-check (our own tool)",
+      "operator": "migurei (ours)",
+      "category": "other",
+      "ua_pattern": "^migurei-ci-deploy-check/",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "high",
+      "needs_review": false,
+      "doc_url": "https://git.hblab.vn/gianglt/parallelweb"
+    },
+    {
+      "id": "bluesky-cardyb",
+      "name": "Bluesky Cardyb",
+      "operator": "Bluesky",
+      "category": "other",
+      "ua_pattern": "Cardyb",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": true,
+      "doc_url": "https://cardyb.bsky.app/"
+    },
+    {
+      "id": "deepseek-fetch",
+      "name": "DeepSeek page fetch (UA seen in lab, unverified)",
+      "operator": "DeepSeek",
+      "category": "user_fetch",
+      "ua_pattern": "^Mozilla/5\\.0 \\(X11; Linux x86_64; rv:149\\.0\\) Gecko/20100101 Firefox/149\\.0$",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "observed_lab",
+      "needs_review": true,
+      "doc_url": "knowledge/claims/ai-apps-fetch-pasted-urls-with-distinct-uas.md"
+    },
+    {
+      "id": "gemini-fetch-google",
+      "name": "Gemini page fetch (UA `Google`, seen in lab, unverified)",
+      "operator": "Google",
+      "category": "user_fetch",
+      "ua_pattern": "^Google$",
+      "flags": "",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "observed_lab",
+      "needs_review": true,
+      "doc_url": "knowledge/claims/ai-apps-fetch-pasted-urls-with-distinct-uas.md"
+    }
+  ],
+  "generic_bot": {
+    "ua_patterns": [
+      "bot\\b",
+      "bot/",
+      "crawl",
+      "spider",
+      "scrapy",
+      "slurp",
+      "headless",
+      "^curl/",
+      "^wget/",
+      "python-requests",
+      "python-urllib",
+      "aiohttp",
+      "httpx",
+      "go-http-client",
+      "^java/",
+      "okhttp",
+      "axios",
+      "node-fetch",
+      "^node$",
+      "undici",
+      "libwww-perl",
+      "httpclient",
+      "^-$",
+      "^$"
+    ]
+  }
+}

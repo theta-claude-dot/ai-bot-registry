@@ -1,0 +1,118 @@
+{
+  "version": "ai-referrers-2026-09-30",
+  "effective_from": "2026-09-30",
+  "sources": [
+    {
+      "id": "chatgpt",
+      "referrer_hosts": [
+        "chatgpt.com",
+        "chat.openai.com"
+      ],
+      "utm_sources": [
+        "chatgpt.com",
+        "chatgpt"
+      ]
+    },
+    {
+      "id": "perplexity",
+      "referrer_hosts": [
+        "perplexity.ai",
+        "www.perplexity.ai"
+      ],
+      "utm_sources": [
+        "perplexity",
+        "perplexity.ai"
+      ]
+    },
+    {
+      "id": "claude",
+      "referrer_hosts": [
+        "claude.ai"
+      ],
+      "utm_sources": [
+        "claude.ai",
+        "claude"
+      ]
+    },
+    {
+      "id": "gemini",
+      "referrer_hosts": [
+        "gemini.google.com",
+        "bard.google.com"
+      ],
+      "utm_sources": [
+        "gemini",
+        "gemini.google.com"
+      ]
+    },
+    {
+      "id": "copilot",
+      "referrer_hosts": [
+        "copilot.microsoft.com",
+        "copilot.cloud.microsoft",
+        "edgeservices.bing.com"
+      ],
+      "utm_sources": [
+        "copilot",
+        "copilot.com"
+      ]
+    },
+    {
+      "id": "grok",
+      "referrer_hosts": [
+        "grok.com"
+      ],
+      "utm_sources": [
+        "grok",
+        "grok.com"
+      ]
+    },
+    {
+      "id": "deepseek",
+      "referrer_hosts": [
+        "chat.deepseek.com"
+      ],
+      "utm_sources": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "meta-ai",
+      "referrer_hosts": [
+        "meta.ai",
+        "www.meta.ai"
+      ],
+      "utm_sources": [
+        "meta.ai"
+      ]
+    },
+    {
+      "id": "mistral",
+      "referrer_hosts": [
+        "chat.mistral.ai"
+      ],
+      "utm_sources": [
+        "mistral"
+      ]
+    },
+    {
+      "id": "you",
+      "referrer_hosts": [
+        "you.com"
+      ],
+      "utm_sources": [
+        "you.com"
+      ]
+    },
+    {
+      "id": "phind",
+      "referrer_hosts": [
+        "www.phind.com",
+        "phind.com"
+      ],
+      "utm_sources": [
+        "phind"
+      ]
+    }
+  ]
+}
