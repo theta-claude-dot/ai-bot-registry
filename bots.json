@@ -1,6 +1,6 @@
 {
-  "version": "bots-2026-10-25",
-  "effective_from": "2026-10-25",
+  "version": "bots-2026-10-29",
+  "effective_from": "2026-10-29",
   "order": "The first bot whose ua_pattern matches wins. Patterns are JavaScript regular expressions; flags default to \"i\".",
   "feeds": [
     {
@@ -583,6 +583,7 @@
       "operator": "Parallel Web Systems",
       "category": "search_index",
       "ua_pattern": "ShapBot",
+      "probe_ua": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0",
       "verify_method": "ip_feed",
       "feeds": [
         "parallel-shapbot"
@@ -597,6 +598,7 @@
       "operator": "Parallel Web Systems",
       "category": "user_fetch",
       "ua_pattern": "Shap-User",
+      "probe_ua": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Shap-User/0.1.0",
       "verify_method": "none",
       "feeds": [],
       "confidence_level": "self_declared",
@@ -760,7 +762,7 @@
       "feeds": [],
       "confidence_level": "observed_lab",
       "needs_review": true,
-      "doc_url": "knowledge/claims/ai-apps-fetch-pasted-urls-with-distinct-uas.md"
+      "doc_url": ""
     },
     {
       "id": "gemini-fetch-google",
@@ -773,7 +775,7 @@
       "feeds": [],
       "confidence_level": "observed_lab",
       "needs_review": true,
-      "doc_url": "knowledge/claims/ai-apps-fetch-pasted-urls-with-distinct-uas.md"
+      "doc_url": ""
     }
   ],
   "generic_bot": {
