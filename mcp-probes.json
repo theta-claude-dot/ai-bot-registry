@@ -6,20 +6,21 @@
   "research": "https://pw.migurei.ai/ja/research/ai-bot-first-visits?src=gh-mcp",
   "window": {
     "since": "2026-10-26T00:00:00Z",
-    "until": "2026-10-28T09:39:00Z",
+    "until": "2026-10-28T09:48:00Z",
     "timezone": "UTC",
     "weeks": "ISO 8601 weeks (Monday start, UTC)"
   },
-  "generated_at": "2026-10-28T09:39:00Z",
+  "generated_at": "2026-10-28T09:48:00Z",
   "generator": {
     "script": "tools/public/export-mcp-probes.mjs",
-    "code_sha": "7df96e75f14123d00eed91396713023c548dc8a9",
-    "bots_registry": "bots-2026-10-29"
+    "code_sha": "72893d52faed7e00fad00dbae12ba72d01598484",
+    "bots_registry": "bots-2026-10-29",
+    "optout_registry": "mcp-probes-optout-2026-10-28"
   },
   "listed_when": "The client requested /mcp (or a path under it), a /.well-known file whose name contains \"mcp\", or the OAuth metadata files the MCP authorization spec names (oauth-protected-resource, oauth-authorization-server; https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).",
   "family": "Requests are grouped by the first product name in the user agent (or the name after \"compatible;\"). Shared HTTP libraries (kind http-library), browser-shaped strings (browser-like) and empty user agents are each one group: many unrelated operators share them.",
   "actions_note": "actions counts the JSON-RPC method of each POST body as the server logged it (known MCP method names only; anything else is \"other\"). other also holds HTTP GET/DELETE on the MCP endpoint and refused requests. Request bodies, arguments and results are not kept. requests_without_method: requests with no logged method (mostly /.well-known files).",
-  "privacy": "No IP address, network, ASN, country, e-mail address or request body. URLs are only http(s) URLs the client put in its own user agent, without query string; e-mail addresses in user agents are dropped.",
+  "privacy": "No IP address, network, ASN, country, e-mail address or request body. URLs are only http(s) URLs the client put in its own user agent, without query string; e-mail addresses in user agents are dropped, and a URL on a private-network host (localhost, .local, .internal, .lan, .home.arpa, Tailscale .ts.net, or a name without a dot) is shown as null. Opt-out: an operator may ask for its entry to be removed by opening an issue on https://github.com/theta-claude-dot/ai-bot-registry/issues; it is removed on the next export. オプトアウト：運営者は https://github.com/theta-claude-dot/ai-bot-registry/issues に issue を作成すると、自身の項目の削除を依頼できます。次回の書き出しで削除します。",
   "excluded": [
     {
       "reason": "experiment-run",
@@ -40,6 +41,11 @@
       "reason": "team-country",
       "rule": "Requests from Vietnam: the team and both lab machines are there and not every line they use is in the own-IP list (our manual tests with macOS curl came from such lines). This can also drop an outside client located in Vietnam.",
       "requests": 28
+    },
+    {
+      "reason": "opt-out",
+      "rule": "Clients whose operator asked to be left out (an issue on https://github.com/theta-claude-dot/ai-bot-registry): counted here only, no name or URL.",
+      "requests": 0
     }
   ],
   "not_listed": {
@@ -49,7 +55,7 @@
   },
   "totals": {
     "families": 179,
-    "requests": 4696
+    "requests": 4712
   },
   "probes": [
     {
@@ -63,18 +69,18 @@
       "user_agent_strings": 1,
       "bots_json_id": null,
       "first_seen": "2026-10-26T04:30:53Z",
-      "requests": 1727,
+      "requests": 1733,
       "requests_per_week": {
-        "2026-W44": 1727
+        "2026-W44": 1733
       },
       "actions": {
-        "initialize": 578,
-        "tools/list": 573,
+        "initialize": 580,
+        "tools/list": 575,
         "tools/call": 0,
         "tools_called": {},
         "other": {
           "forbidden-origin": 1,
-          "notifications/initialized": 573,
+          "notifications/initialized": 575,
           "ping": 1
         }
       },
@@ -135,17 +141,17 @@
       "user_agent_strings": 2,
       "bots_json_id": null,
       "first_seen": "2026-10-27T01:30:53Z",
-      "requests": 371,
+      "requests": 374,
       "requests_per_week": {
-        "2026-W44": 371
+        "2026-W44": 374
       },
       "actions": {
-        "initialize": 123,
-        "tools/list": 123,
+        "initialize": 124,
+        "tools/list": 124,
         "tools/call": 0,
         "tools_called": {},
         "other": {
-          "notifications/initialized": 123
+          "notifications/initialized": 124
         }
       },
       "requests_without_method": 2,
@@ -163,7 +169,7 @@
       "self_declared": true,
       "verified": false,
       "declared_urls": [
-        "https://spark.tail6ec125.ts.net/developers"
+        null
       ],
       "user_agent_strings": 1,
       "bots_json_id": null,
@@ -933,6 +939,36 @@
       "well_known_files": []
     },
     {
+      "name": "protogrid-probe",
+      "kind": "named",
+      "self_declared": true,
+      "verified": false,
+      "declared_urls": [
+        "https://protogrid.dev/probe"
+      ],
+      "user_agent_strings": 1,
+      "bots_json_id": null,
+      "first_seen": "2026-10-26T03:06:22Z",
+      "requests": 20,
+      "requests_per_week": {
+        "2026-W44": 20
+      },
+      "actions": {
+        "initialize": 0,
+        "tools/list": 10,
+        "tools/call": 0,
+        "tools_called": {},
+        "other": {
+          "server/discover": 10
+        }
+      },
+      "requests_without_method": 0,
+      "mcp_paths": [
+        "/mcp"
+      ],
+      "well_known_files": []
+    },
+    {
       "name": "SealKeeperBot",
       "kind": "named",
       "self_declared": true,
@@ -954,36 +990,6 @@
         "tools_called": {},
         "other": {
           "notifications/initialized": 6
-        }
-      },
-      "requests_without_method": 0,
-      "mcp_paths": [
-        "/mcp"
-      ],
-      "well_known_files": []
-    },
-    {
-      "name": "protogrid-probe",
-      "kind": "named",
-      "self_declared": true,
-      "verified": false,
-      "declared_urls": [
-        "https://protogrid.dev/probe"
-      ],
-      "user_agent_strings": 1,
-      "bots_json_id": null,
-      "first_seen": "2026-10-26T03:06:22Z",
-      "requests": 18,
-      "requests_per_week": {
-        "2026-W44": 18
-      },
-      "actions": {
-        "initialize": 0,
-        "tools/list": 9,
-        "tools/call": 0,
-        "tools_called": {},
-        "other": {
-          "server/discover": 9
         }
       },
       "requests_without_method": 0,
@@ -1259,6 +1265,36 @@
         "tools/call": 0,
         "tools_called": {},
         "other": {}
+      },
+      "requests_without_method": 0,
+      "mcp_paths": [
+        "/mcp"
+      ],
+      "well_known_files": []
+    },
+    {
+      "name": "CapkeyBot",
+      "kind": "named",
+      "self_declared": true,
+      "verified": false,
+      "declared_urls": [
+        "https://capkey.dev/bot"
+      ],
+      "user_agent_strings": 1,
+      "bots_json_id": null,
+      "first_seen": "2026-10-26T03:32:19Z",
+      "requests": 10,
+      "requests_per_week": {
+        "2026-W44": 10
+      },
+      "actions": {
+        "initialize": 0,
+        "tools/list": 5,
+        "tools/call": 0,
+        "tools_called": {},
+        "other": {
+          "GET": 5
+        }
       },
       "requests_without_method": 0,
       "mcp_paths": [
@@ -1655,6 +1691,36 @@
       "well_known_files": []
     },
     {
+      "name": "mcpcost",
+      "kind": "named",
+      "self_declared": true,
+      "verified": false,
+      "declared_urls": [
+        "https://github.com/ondraulehla/mcpcost"
+      ],
+      "user_agent_strings": 1,
+      "bots_json_id": null,
+      "first_seen": "2026-10-26T09:00:06Z",
+      "requests": 9,
+      "requests_per_week": {
+        "2026-W44": 9
+      },
+      "actions": {
+        "initialize": 3,
+        "tools/list": 3,
+        "tools/call": 0,
+        "tools_called": {},
+        "other": {
+          "notifications/initialized": 3
+        }
+      },
+      "requests_without_method": 0,
+      "mcp_paths": [
+        "/mcp"
+      ],
+      "well_known_files": []
+    },
+    {
       "name": "referencesource-mcp-health",
       "kind": "named",
       "self_declared": true,
@@ -1705,36 +1771,6 @@
         "other": {
           "GET": 2,
           "notifications/initialized": 2
-        }
-      },
-      "requests_without_method": 0,
-      "mcp_paths": [
-        "/mcp"
-      ],
-      "well_known_files": []
-    },
-    {
-      "name": "CapkeyBot",
-      "kind": "named",
-      "self_declared": true,
-      "verified": false,
-      "declared_urls": [
-        "https://capkey.dev/bot"
-      ],
-      "user_agent_strings": 1,
-      "bots_json_id": null,
-      "first_seen": "2026-10-26T03:32:19Z",
-      "requests": 8,
-      "requests_per_week": {
-        "2026-W44": 8
-      },
-      "actions": {
-        "initialize": 0,
-        "tools/list": 4,
-        "tools/call": 0,
-        "tools_called": {},
-        "other": {
-          "GET": 4
         }
       },
       "requests_without_method": 0,
@@ -2479,36 +2515,6 @@
         "tools/call": 0,
         "tools_called": {},
         "other": {}
-      },
-      "requests_without_method": 0,
-      "mcp_paths": [
-        "/mcp"
-      ],
-      "well_known_files": []
-    },
-    {
-      "name": "mcpcost",
-      "kind": "named",
-      "self_declared": true,
-      "verified": false,
-      "declared_urls": [
-        "https://github.com/ondraulehla/mcpcost"
-      ],
-      "user_agent_strings": 1,
-      "bots_json_id": null,
-      "first_seen": "2026-10-26T09:00:06Z",
-      "requests": 6,
-      "requests_per_week": {
-        "2026-W44": 6
-      },
-      "actions": {
-        "initialize": 2,
-        "tools/list": 2,
-        "tools/call": 0,
-        "tools_called": {},
-        "other": {
-          "notifications/initialized": 2
-        }
       },
       "requests_without_method": 0,
       "mcp_paths": [

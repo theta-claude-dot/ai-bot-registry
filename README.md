@@ -40,6 +40,12 @@ requests. The file holds no IP address, network or e-mail address. Our own
 tests, our scanner and our experiments are left out (see `excluded` in the
 file). It is regenerated from our access log about once a week; `window` and
 `generator.code_sha` say which log period and which code produced it.
+A URL on a private-network host (localhost, `.local`, `.internal`, Tailscale
+`.ts.net` and the like) is shown as `null`.
+
+**Opt-out.** If you operate one of these clients and want your entry removed,
+open an issue on https://github.com/theta-claude-dot/ai-bot-registry/issues
+naming the client; it is removed on the next export.
 
 `mcp-probes.json` は、当ラボの検証用サイトの公開 MCP サーバー（`https://pw.migurei.ai/mcp`、公式 MCP Registry に登録）に
 2026-10-26 以降アクセスしてきたクライアントの一覧です。ユーザーエージェントに書かれた名前と URL、初回アクセス日時、
@@ -50,6 +56,10 @@ file). It is regenerated from our access log about once a week; `window` and
 送信元が本当にその運営者かどうかは確認していません。IP アドレス、ネットワーク、メールアドレスは含みません。
 当ラボ自身のテスト、スキャナー、実験のアクセスは除外しています（ファイル内の `excluded` を参照）。
 アクセスログから週に 1 回ほど再生成します。対象期間は `window`、生成したコードは `generator.code_sha` にあります。
+プライベートネットワークのホスト（localhost、`.local`、`.internal`、Tailscale の `.ts.net` など）の URL は `null` と表示します。
+
+**オプトアウト。** これらのクライアントの運営者で、自身の項目の削除を希望される場合は、
+https://github.com/theta-claude-dot/ai-bot-registry/issues にクライアント名を記載した issue を作成してください。次回の書き出しで削除します。
 
 How these bots compare with the AI crawlers that read pages / ページを読む AI クローラーとの比較:
 https://pw.migurei.ai/ja/research/ai-bot-first-visits?src=gh-mcp
