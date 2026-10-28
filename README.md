@@ -24,15 +24,46 @@ What these bots actually did on our own site, counted from its access logs
 - [LLMO and GEO measurement tools compared](https://pw.migurei.ai/en/compare?src=gh) /
   [LLMO・GEO 測定ツール比較](https://pw.migurei.ai/compare?src=gh)
 
+## MCP サーバーに来るボット / Bots that probe MCP servers
+
+`mcp-probes.json` lists the clients that called the public MCP server of our
+lab site (`https://pw.migurei.ai/mcp`, listed in the official MCP Registry)
+since 2026-10-26: the name and URL each one wrote in its user agent, when it
+first came, requests per week, what it did (`initialize`, `tools/list`,
+`tools/call`) and which `/.well-known` files it asked for. If you run an MCP
+server and find an unfamiliar name such as `mcpbeat` or `MCPWatch` in your
+logs, look it up here.
+
+**Self-declared, not verified.** Every name and URL is what the client wrote
+about itself; anyone can copy a user agent, and we did not check who sent the
+requests. The file holds no IP address, network or e-mail address. Our own
+tests, our scanner and our experiments are left out (see `excluded` in the
+file). It is regenerated from our access log about once a week; `window` and
+`generator.code_sha` say which log period and which code produced it.
+
+`mcp-probes.json` は、当ラボの検証用サイトの公開 MCP サーバー（`https://pw.migurei.ai/mcp`、公式 MCP Registry に登録）に
+2026-10-26 以降アクセスしてきたクライアントの一覧です。ユーザーエージェントに書かれた名前と URL、初回アクセス日時、
+週ごとのリクエスト数、行った操作（`initialize`、`tools/list`、`tools/call`）、要求した `/.well-known` ファイルを記載しています。
+自分の MCP サーバーのログに `mcpbeat` や `MCPWatch` など見慣れない名前があれば、ここで確認できます。
+
+**自己申告・未検証です。** 名前と URL はクライアント自身が名乗ったもので、ユーザーエージェントは誰でも偽装できます。
+送信元が本当にその運営者かどうかは確認していません。IP アドレス、ネットワーク、メールアドレスは含みません。
+当ラボ自身のテスト、スキャナー、実験のアクセスは除外しています（ファイル内の `excluded` を参照）。
+アクセスログから週に 1 回ほど再生成します。対象期間は `window`、生成したコードは `generator.code_sha` にあります。
+
+How these bots compare with the AI crawlers that read pages / ページを読む AI クローラーとの比較:
+https://pw.migurei.ai/ja/research/ai-bot-first-visits?src=gh-mcp
+
 ## Files
 
 | File | Content |
 |---|---|
 | `bots.json` | Bots: operator, purpose, user-agent pattern, how to verify, official documentation |
 | `ai-referrers.json` | AI assistants: referrer hosts and `utm_source` values seen when a person clicks a link in an AI answer |
+| `mcp-probes.json` | Clients that probed our MCP server: self-declared name and URL, requests per week, MCP methods, `.well-known` files (not verified) |
 
-Every entry links to the operator's own page. Nothing here is guessed from
-traffic alone: a bot is listed with the operator's published name and, where
+Every entry in `bots.json` links to the operator's own page. Nothing in it is
+guessed from traffic alone (`mcp-probes.json` is the exception, and says so): a bot is listed with the operator's published name and, where
 one exists, its published IP list.
 
 ## Categories (`category`)
@@ -83,8 +114,9 @@ AI 企業のクローラーとフェッチャーについて、サイトを訪�
 |---|---|
 | `bots.json` | ボット：運営元、目的、ユーザーエージェントのパターン、確認方法、公式ドキュメント |
 | `ai-referrers.json` | AI アシスタント：AI の回答内のリンクを人がクリックしたときのリファラーのホストと `utm_source` の値 |
+| `mcp-probes.json` | 当ラボの MCP サーバーに来たクライアント：自己申告の名前と URL、週ごとのリクエスト数、MCP の操作、`.well-known` ファイル（未検証） |
 
-各項目には運営元の公式ページへのリンクがあります。アクセスログだけを根拠に登録した項目はなく、運営元が公表している名称と、公開されている場合は IP リストに基づいています。
+`bots.json` の各項目には運営元の公式ページへのリンクがあります。アクセスログだけを根拠に登録した項目はなく（例外はアクセスログから作った `mcp-probes.json` で、その旨を明記しています）、運営元が公表している名称と、公開されている場合は IP リストに基づいています。
 
 ## 分類（`category`）
 
