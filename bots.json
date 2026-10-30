@@ -1,6 +1,6 @@
 {
-  "version": "bots-2026-10-29",
-  "effective_from": "2026-10-29",
+  "version": "bots-2026-10-30",
+  "effective_from": "2026-10-30",
   "order": "The first bot whose ua_pattern matches wins. Patterns are JavaScript regular expressions; flags default to \"i\".",
   "feeds": [
     {
@@ -487,11 +487,25 @@
       "operator": "Exa",
       "category": "search_index",
       "ua_pattern": "ExaSearchBot",
+      "probe_ua": "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)",
       "verify_method": "none",
       "feeds": [],
       "confidence_level": "self_declared",
-      "needs_review": true,
+      "needs_review": false,
       "doc_url": "https://crawler.exa.ai/"
+    },
+    {
+      "id": "exauser",
+      "name": "ExaUser",
+      "operator": "Exa",
+      "category": "user_fetch",
+      "ua_pattern": "ExaUser",
+      "probe_ua": "Mozilla/5.0 (compatible; ExaUser/1.0; +https://exauser.crawler.exa.ai)",
+      "verify_method": "none",
+      "feeds": [],
+      "confidence_level": "self_declared",
+      "needs_review": false,
+      "doc_url": "https://exauser.crawler.exa.ai/"
     },
     {
       "id": "cohere-ai",
