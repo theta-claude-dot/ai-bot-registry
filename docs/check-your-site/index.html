@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>robots.txt だけでは分からない：自分のサイトが AI ボットに返す応答を curl で確かめる</title>
+<meta name="description" content="robots.txt の記述だけでは、サーバー・CDN・プラグインが AI ボットを止めていないかは分かりません。curl 3 コマンドで、robots.txt、ボットの User-Agent への応答、X-Robots-Tag を自分のサイトで確かめる手順。">
+<link rel="canonical" href="https://theta-claude-dot.github.io/ai-bot-registry/check-your-site/">
+<style>body{font-family:system-ui,sans-serif;line-height:1.7;max-width:48rem;margin:0 auto;padding:1rem;color:#222}pre{background:#f3f3f3;border:1px solid #ccc;padding:.6rem .8rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all}table{border-collapse:collapse}th,td{border:1px solid #ccc;padding:.3rem .6rem;text-align:left;vertical-align:top}th{background:#f3f3f3}.warn{border-left:4px solid #c60;padding:.2rem .8rem;background:#fff6ec}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"robots.txt だけでは分からない：自分のサイトが AI ボットに返す応答を curl で確かめる","description":"robots.txt の記述だけでは、サーバー・CDN・プラグインが AI ボットを止めていないかは分かりません。curl 3 コマンドで、robots.txt、ボットの User-Agent への応答、X-Robots-Tag を自分のサイトで確かめる手順。","url":"https://theta-claude-dot.github.io/ai-bot-registry/check-your-site/","inLanguage":"ja","datePublished":"2026-10-30","dateModified":"2026-10-30","author":{"@type":"Organization","name":"Parallel World","url":"https://migurei.ai"},"publisher":{"@type":"Organization","name":"Parallel World","url":"https://migurei.ai"},"step":[{"@type":"HowToStep","name":"robots.txt を見る","text":"curl -s https://<自分のサイト>/robots.txt"},{"@type":"HowToStep","name":"AI ボットの User-Agent で応答を見る","text":"curl -sI -A \"<公式 User-Agent>\" https://<自分のサイト>/ で 200・403・503 と server、cf-mitigated ヘッダーを読む"},{"@type":"HowToStep","name":"X-Robots-Tag を見る","text":"同じ応答の X-Robots-Tag ヘッダーを読む"},{"@type":"HowToStep","name":"ログの IP を確かめる","text":"ログに AI ボットの User-Agent があれば、送信元 IP が公式リストにあるか確かめる"}]}</script>
+</head>
+<body>
+<p><a href="https://theta-claude-dot.github.io/ai-bot-registry/">AI ボット一覧（レジストリ）</a> &gt; 自分のサイトで確かめる</p>
+<h1>robots.txt だけでは分からない：自分のサイトが AI ボットに返す応答を curl で確かめる</h1>
+<p>robots.txt に GPTBot を許可と書いてあっても、レンタルサーバー、CDN、セキュリティ系プラグインが、書いていない理由で AI ボットに 403 を返していることがあります。サイトの持ち主は気づきにくい点です。curl が使える端末（Mac の「ターミナル」、Windows 10 以降のコマンドプロンプト）で、次の 3 つの層を順に確かめます。<code>&lt;自分のサイト&gt;</code> はあなたのドメインに置き換えてください。</p>
+<p class="warn"><strong>自分のサイトだけで試す。</strong>他人のサイトに対して、ボットを名乗る確認リクエストを繰り返し送らないでください。</p>
+
+<h2>1. robots.txt に何と書いてあるか</h2>
+<p>まず、サイトが公開している意思表示を読みます。</p>
+<pre><code>curl -s https://&lt;自分のサイト&gt;/robots.txt</code></pre>
+<p><code>User-agent: GPTBot</code> の下に <code>Disallow: /</code> があれば、そのボットには全体を拒否と書いてあります。何も出ない、404 が返る場合は、書いていない（ルールなし）という意味です。書き方の判定をそのまま見たいときは: <a href="https://pw.migurei.ai/ja/check/ai-bots?src=ghpages-curl">AI ボットの robots.txt 確認（Parallel World）</a>。</p>
+<p>ここで分かるのは「書いてあること」だけです。サーバーが実際にどう応答するかは、次の層で見ます。</p>
+
+<h2>2. ボットの User-Agent で、サーバーが何を返すか</h2>
+<p>ボットが名乗る User-Agent を付けて、先頭ページのヘッダーだけ取ります（<code>-I</code> はヘッダーのみ、<code>-A</code> は User-Agent の指定）。6 つのボットの例です。User-Agent は運営会社が公開している文字列で、ボット名の token はレジストリ <a href="https://raw.githubusercontent.com/theta-claude-dot/ai-bot-registry/main/bots.json">bots.json</a>（CC BY 4.0）の 56 件と同じものです。</p>
+<h3>GPTBot（OpenAI）</h3>
+<pre><code>curl -sI -A &quot;Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; GPTBot/1.4; +https://openai.com/gptbot&quot; https://&lt;自分のサイト&gt;/</code></pre>
+<h3>OAI-SearchBot（OpenAI）</h3>
+<pre><code>curl -sI -A &quot;Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.4; +https://openai.com/searchbot&quot; https://&lt;自分のサイト&gt;/</code></pre>
+<h3>ChatGPT-User（OpenAI）</h3>
+<pre><code>curl -sI -A &quot;Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot&quot; https://&lt;自分のサイト&gt;/</code></pre>
+<h3>ClaudeBot（Anthropic）</h3>
+<pre><code>curl -sI -A &quot;Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)&quot; https://&lt;自分のサイト&gt;/</code></pre>
+<h3>PerplexityBot（Perplexity）</h3>
+<pre><code>curl -sI -A &quot;Mozilla/5.0 (compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)&quot; https://&lt;自分のサイト&gt;/</code></pre>
+<h3>Perplexity-User（Perplexity）</h3>
+<pre><code>curl -sI -A &quot;Mozilla/5.0 (compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)&quot; https://&lt;自分のサイト&gt;/</code></pre>
+<p>比較の基準として、User-Agent を付けない通常の応答も取っておきます。</p>
+<pre><code>curl -sI https://&lt;自分のサイト&gt;/</code></pre>
+<h3>読み方</h3>
+<table>
+<thead><tr><th>見る場所</th><th>意味</th></tr></thead>
+<tbody>
+<tr><td><code>HTTP/2 200</code></td><td>応答が返った。この User-Agent は、この場所からは止められていない。</td></tr>
+<tr><td><code>HTTP/2 403</code></td><td>拒否された。通常の curl が 200 で、ボットの User-Agent だけ 403 なら、User-Agent を見て止めている設定がある（サーバー、CDN、WAF、プラグインのどれか）。</td></tr>
+<tr><td><code>HTTP/2 503</code>、<code>429</code></td><td>混雑、レート制限、またはボット向けの確認ページ。</td></tr>
+<tr><td><code>server:</code></td><td>応答した側の名前（例: cloudflare、AkamaiGHost、AmazonS3）。どこで止まったかの手がかり。</td></tr>
+<tr><td><code>cf-mitigated:</code></td><td>Cloudflare が応答に介入した印。<code>challenge</code> ならボットに確認ページを返している。</td></tr>
+</tbody>
+</table>
+<div class="warn">
+<p><strong>あなたの IP から試した結果であって、運営会社の IP からの結果ではありません。</strong>200 だからといって、本物のボットが入れる証拠にはなりません。多くの CDN や WAF は、User-Agent と送信元 IP の組み合わせで判定するため、名乗りだけの curl は通り、本物の IP のボットは止まる（逆もある）ことがあります。403 のほうは、少なくとも User-Agent で止める設定があるという確かな手がかりです。HEAD リクエスト（<code>-I</code>）に別の応答をするサイトもあるので、気になるときは <code>-I</code> を外して試してください。</p>
+</div>
+
+<h2>3. X-Robots-Tag：ページの本文ではなく、ヘッダーに書かれた指示</h2>
+<p>robots.txt とは別に、HTTP ヘッダー <code>X-Robots-Tag</code> でも、検索・AI への指示（<code>noindex</code> など）を出せます。2 の応答にそのまま含まれます。</p>
+<pre><code>curl -sI -A &quot;Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; GPTBot/1.4; +https://openai.com/gptbot&quot; https://&lt;自分のサイト&gt;/ | grep -i x-robots-tag</code></pre>
+<p>何も出なければ、そのヘッダーはありません。<code>noindex</code> や <code>none</code> が出たら、そのページは検索インデックスに載せない指示です。意図したものか確かめてください。ヘッダーは URL ごとに違えられるので、見たいページの URL でも試します。</p>
+
+<h2>4. ログに AI ボットの名前があったら、IP を確かめる</h2>
+<p>アクセスログに GPTBot や ClaudeBot の User-Agent があっても、名前は誰でも名乗れます。本物かどうかは、送信元 IP が運営会社の公開リストにあるかで確かめます。IP の確認: <a href="https://pw.migurei.ai/ja/check/ai-bot-ip?src=ghpages-curl">AI ボットの IP 確認（Parallel World）</a>。リストの場所は <a href="https://theta-claude-dot.github.io/ai-bot-registry/">AI ボット一覧</a> にまとめてあります。</p>
+
+<h2>私たちの数字</h2>
+<p>私たちの定点調査（2026年第44週、Tranco 上位の .jp サイト）では、788 サイト中 61 サイト（7.7%）が、私たちの署名付き robots.txt 取得リクエストに 403 を返しました（server は AkamaiGHost が 19、AmazonS3 が 13）。この 403 は私たちのリクエストへの応答で、AI ボットへの応答そのものではありません。ただ、robots.txt を読む前の段階で止まる設定が、実際に多くのサイトにあることを示しています。調査のデータ: <a href="https://theta-claude-dot.github.io/jp-ai-bot-census/">.jp 上位サイトの AI ボット対応 週次定点調査</a>。</p>
+
+<h2>出典</h2>
+<p>3 層で確かめるという考え方は、海外SEO情報ブログの記事（2026年10月28日）にあります: <a href="https://www.suzukikenichi.com/blog/a-diagnostic-tool-to-check-whether-gptbot-claudebot-and-other-ai-crawlers-are-blocked/">robots.txtだけでは分からない、GPTBotやClaudeBotなどAIクローラーのブロック状況を調べる診断ツール</a>。そこで紹介されている診断ツールは英語です。本ページは、同じ確認を自分の端末で curl だけでやる手順です。</p>
+<p>作成: <a href="https://migurei.ai">Parallel World</a>。レジストリ版 bots-2026-10-30、確認日 2026-10-30。</p>
+</body>
+</html>
