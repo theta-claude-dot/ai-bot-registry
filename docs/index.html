@@ -4,74 +4,75 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI ボット一覧（2026年10月）：User-Agent・公式 IP リスト・本物か確かめる方法</title>
-<meta name="description" content="主要な AI ボットの User-Agent、robots.txt 名、公式 IP リスト、確認方法の一覧（55 件、うち公式 IP リストあり 22 件）。">
+<meta name="description" content="主要な AI ボットの User-Agent、robots.txt 名、公式 IP リスト、確認方法の一覧（56 件、うち公式 IP リストあり 22 件）。">
 <link rel="canonical" href="https://theta-claude-dot.github.io/ai-bot-registry/">
 <style>body{font-family:system-ui,sans-serif;line-height:1.6;max-width:72rem;margin:0 auto;padding:1rem;color:#222}table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{border:1px solid #ccc;padding:.3rem .5rem;text-align:left;vertical-align:top;word-break:break-all}th{background:#f3f3f3}</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"AI ボット一覧（2026年10月）：User-Agent・公式 IP リスト・本物か確かめる方法","description":"主要な AI ボットの User-Agent、robots.txt 名、公式 IP リスト、確認方法の一覧（55 件、うち公式 IP リストあり 22 件）。","url":"https://theta-claude-dot.github.io/ai-bot-registry/","inLanguage":"ja","dateModified":"2026-10-29","version":"bots-2026-10-29","license":"https://creativecommons.org/licenses/by/4.0/","creator":{"@type":"Organization","name":"Parallel World","url":"https://migurei.ai"},"distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://raw.githubusercontent.com/theta-claude-dot/ai-bot-registry/main/bots.json"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"AI ボット一覧（2026年10月）：User-Agent・公式 IP リスト・本物か確かめる方法","description":"主要な AI ボットの User-Agent、robots.txt 名、公式 IP リスト、確認方法の一覧（56 件、うち公式 IP リストあり 22 件）。","url":"https://theta-claude-dot.github.io/ai-bot-registry/","inLanguage":"ja","dateModified":"2026-10-30","version":"bots-2026-10-30","license":"https://creativecommons.org/licenses/by/4.0/","creator":{"@type":"Organization","name":"Parallel World","url":"https://migurei.ai"},"distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://raw.githubusercontent.com/theta-claude-dot/ai-bot-registry/main/bots.json"}}</script>
 </head>
 <body>
 <h1>AI ボット一覧（2026年10月）：User-Agent・公式 IP リスト・本物か確かめる方法</h1>
 <p>User-Agent は名乗りにすぎない。IP が公式リストにあるかで確かめる。アクセスログで GPTBot や ClaudeBot を見つけても、その名前だけでは本物とは言えない。運営会社が公開している IP リストに、そのリクエストの送信元 IP があるかを照合し、リストがない会社は公式ドキュメントの方法（署名など）で確かめる。</p>
 <p>私たちの観測では、migurei.ai に 2026年10月7日〜21日の間に届いた 12,801 件の <code>.env</code> などの探索リクエストのうち、3,000 件以上がこの一覧にあるボット名（約30種）を名乗っていた（200 を返したものは 0 件）。</p>
-<p>全 55 件。公式 IP リストがあるのは 22 件。レジストリ版 bots-2026-10-29、確認日 2026-10-29。データ: <a href="https://raw.githubusercontent.com/theta-claude-dot/ai-bot-registry/main/bots.json">bots.json</a>（CC BY 4.0）。</p>
+<p>全 56 件。公式 IP リストがあるのは 22 件。レジストリ版 bots-2026-10-30、確認日 2026-10-30。データ: <a href="https://raw.githubusercontent.com/theta-claude-dot/ai-bot-registry/main/bots.json">bots.json</a>（CC BY 4.0）。</p>
 <table>
 <thead><tr><th>会社</th><th>用途</th><th>User-Agent token</th><th>robots.txt token</th><th>公式 IP リスト URL</th><th>確かめ方</th><th>確認日</th></tr></thead>
 <tbody>
-<tr><td>OpenAI</td><td>学習</td><td>GPTBot</td><td>GPTBot</td><td><a href="https://openai.com/gptbot.json">https://openai.com/gptbot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>OpenAI</td><td>検索</td><td>OAI-SearchBot</td><td>OAI-SearchBot</td><td><a href="https://openai.com/searchbot.json">https://openai.com/searchbot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>OpenAI</td><td>ユーザー操作</td><td>ChatGPT-User</td><td>ChatGPT-User</td><td><a href="https://openai.com/chatgpt-user.json">https://openai.com/chatgpt-user.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>OpenAI</td><td>その他</td><td>OAI-AdsBot</td><td>OAI-AdsBot</td><td><a href="https://openai.com/adsbot.json">https://openai.com/adsbot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Anthropic</td><td>検索</td><td>Claude-SearchBot</td><td>Claude-SearchBot</td><td><a href="https://claude.com/crawling/bots.json">https://claude.com/crawling/bots.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Anthropic</td><td>ユーザー操作</td><td>Claude-User</td><td>Claude-User</td><td><a href="https://claude.com/crawling/bots.json">https://claude.com/crawling/bots.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Anthropic</td><td>学習</td><td>ClaudeBot</td><td>ClaudeBot</td><td><a href="https://claude.com/crawling/bots.json">https://claude.com/crawling/bots.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Anthropic</td><td>学習</td><td>anthropic-ai</td><td>anthropic-ai</td><td><a href="https://claude.com/crawling/bots.json">https://claude.com/crawling/bots.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Perplexity</td><td>ユーザー操作</td><td>Perplexity-User</td><td>Perplexity-User</td><td><a href="https://www.perplexity.com/perplexity-user.json">https://www.perplexity.com/perplexity-user.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Perplexity</td><td>検索</td><td>PerplexityBot</td><td>PerplexityBot</td><td><a href="https://www.perplexity.com/perplexitybot.json">https://www.perplexity.com/perplexitybot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Google</td><td>学習</td><td>Google-Extended</td><td>Google-Extended</td><td><a href="https://developers.google.com/static/search/apis/ipranges/googlebot.json">https://developers.google.com/static/search/apis/ipranges/googlebot.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/special-crawlers.json">https://developers.google.com/static/search/apis/ipranges/special-crawlers.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json">https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json">https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Google</td><td>ユーザー操作</td><td>Gemini-Deep-Research</td><td>Gemini-Deep-Research</td><td><a href="https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json">https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json">https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Google</td><td>その他</td><td>Google-CloudVertexBot</td><td>Google-CloudVertexBot</td><td><a href="https://developers.google.com/static/search/apis/ipranges/special-crawlers.json">https://developers.google.com/static/search/apis/ipranges/special-crawlers.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Google</td><td>その他</td><td>GoogleOther</td><td>GoogleOther</td><td><a href="https://developers.google.com/static/search/apis/ipranges/googlebot.json">https://developers.google.com/static/search/apis/ipranges/googlebot.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/special-crawlers.json">https://developers.google.com/static/search/apis/ipranges/special-crawlers.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Google</td><td>検索</td><td>Googlebot</td><td>Googlebot</td><td><a href="https://developers.google.com/static/search/apis/ipranges/googlebot.json">https://developers.google.com/static/search/apis/ipranges/googlebot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Google</td><td>検索</td><td>Google-InspectionTool</td><td>Google-InspectionTool</td><td><a href="https://developers.google.com/static/search/apis/ipranges/googlebot.json">https://developers.google.com/static/search/apis/ipranges/googlebot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Microsoft</td><td>検索</td><td>bingbot</td><td>bingbot</td><td><a href="https://www.bing.com/toolbox/bingbot.json">https://www.bing.com/toolbox/bingbot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Apple</td><td>学習</td><td>Applebot-Extended</td><td>Applebot-Extended</td><td><a href="https://search.developer.apple.com/applebot.json">https://search.developer.apple.com/applebot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Apple</td><td>検索</td><td>Applebot</td><td>Applebot</td><td><a href="https://search.developer.apple.com/applebot.json">https://search.developer.apple.com/applebot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>DuckDuckGo</td><td>検索</td><td>DuckDuckBot</td><td>DuckDuckBot</td><td><a href="https://duckduckgo.com/duckduckbot.json">https://duckduckgo.com/duckduckbot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Common Crawl</td><td>学習</td><td>CCBot</td><td>CCBot</td><td><a href="https://index.commoncrawl.org/ccbot.json">https://index.commoncrawl.org/ccbot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Meta</td><td>学習</td><td>meta-externalagent</td><td>meta-externalagent</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Meta</td><td>ユーザー操作</td><td>meta-externalfetcher</td><td>meta-externalfetcher</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Meta</td><td>検索</td><td>meta-webindexer</td><td>meta-webindexer</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Meta</td><td>その他</td><td>meta-externalads</td><td>meta-externalads</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Meta</td><td>その他</td><td>facebookexternalhit</td><td>facebookexternalhit</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Amazon</td><td>学習</td><td>Amazonbot</td><td>Amazonbot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>ByteDance</td><td>学習</td><td>Bytespider</td><td>Bytespider</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Mistral AI</td><td>ユーザー操作</td><td>MistralAI-User</td><td>MistralAI-User</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>You.com</td><td>検索</td><td>YouBot</td><td>YouBot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Exa</td><td>検索</td><td>ExaSearchBot</td><td>ExaSearchBot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Cohere</td><td>不明</td><td>cohere-ai</td><td>cohere-ai</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>xAI</td><td>不明</td><td>xAI-SearchBot</td><td>xAI-SearchBot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>xAI</td><td>不明</td><td>GrokBot / xAI-Grok</td><td>GrokBot / xAI-Grok</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>DeepSeek</td><td>不明</td><td>DeepSeekBot</td><td>DeepSeekBot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Alibaba</td><td>不明</td><td>Qwenbot</td><td>Qwenbot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Zhipu AI</td><td>不明</td><td>ChatGLM-Spider</td><td>ChatGLM-Spider</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Diffbot</td><td>不明</td><td>Diffbot</td><td>Diffbot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Parallel Web Systems</td><td>検索</td><td>ShapBot</td><td>ShapBot</td><td><a href="https://docs.parallel.ai/resources/shapbot.json">https://docs.parallel.ai/resources/shapbot.json</a></td><td>IP</td><td>2026-10-29</td></tr>
-<tr><td>Parallel Web Systems</td><td>ユーザー操作</td><td>Shap-User</td><td>Shap-User</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>ByteDance</td><td>不明</td><td>TikTokSpider</td><td>TikTokSpider</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Cốc Cốc</td><td>検索</td><td>coccocbot</td><td>coccocbot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Yandex</td><td>検索</td><td>YandexBot / YandexMobileBot</td><td>YandexBot / YandexMobileBot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Huawei</td><td>検索</td><td>PetalBot</td><td>PetalBot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Semrush</td><td>その他</td><td>SemrushBot</td><td>SemrushBot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Ahrefs</td><td>その他</td><td>AhrefsBot / AhrefsSiteAudit</td><td>AhrefsBot / AhrefsSiteAudit</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Moz</td><td>その他</td><td>DotBot</td><td>DotBot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Majestic</td><td>その他</td><td>MJ12bot</td><td>MJ12bot</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Babbar</td><td>その他</td><td>Barkrowler</td><td>Barkrowler</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Palo Alto Networks</td><td>その他</td><td>—</td><td>—</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>migurei (ours)</td><td>その他</td><td>pw-trial-compare</td><td>—</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>migurei (ours)</td><td>その他</td><td>migurei-ci-deploy-check</td><td>—</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Bluesky</td><td>その他</td><td>Cardyb</td><td>Cardyb</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>DeepSeek</td><td>ユーザー操作</td><td>—</td><td>—</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
-<tr><td>Google</td><td>ユーザー操作</td><td>Google</td><td>—</td><td>—</td><td>なし</td><td>2026-10-29</td></tr>
+<tr><td>OpenAI</td><td>学習</td><td>GPTBot</td><td>GPTBot</td><td><a href="https://openai.com/gptbot.json">https://openai.com/gptbot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>OpenAI</td><td>検索</td><td>OAI-SearchBot</td><td>OAI-SearchBot</td><td><a href="https://openai.com/searchbot.json">https://openai.com/searchbot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>OpenAI</td><td>ユーザー操作</td><td>ChatGPT-User</td><td>ChatGPT-User</td><td><a href="https://openai.com/chatgpt-user.json">https://openai.com/chatgpt-user.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>OpenAI</td><td>その他</td><td>OAI-AdsBot</td><td>OAI-AdsBot</td><td><a href="https://openai.com/adsbot.json">https://openai.com/adsbot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Anthropic</td><td>検索</td><td>Claude-SearchBot</td><td>Claude-SearchBot</td><td><a href="https://claude.com/crawling/bots.json">https://claude.com/crawling/bots.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Anthropic</td><td>ユーザー操作</td><td>Claude-User</td><td>Claude-User</td><td><a href="https://claude.com/crawling/bots.json">https://claude.com/crawling/bots.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Anthropic</td><td>学習</td><td>ClaudeBot</td><td>ClaudeBot</td><td><a href="https://claude.com/crawling/bots.json">https://claude.com/crawling/bots.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Anthropic</td><td>学習</td><td>anthropic-ai</td><td>anthropic-ai</td><td><a href="https://claude.com/crawling/bots.json">https://claude.com/crawling/bots.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Perplexity</td><td>ユーザー操作</td><td>Perplexity-User</td><td>Perplexity-User</td><td><a href="https://www.perplexity.com/perplexity-user.json">https://www.perplexity.com/perplexity-user.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Perplexity</td><td>検索</td><td>PerplexityBot</td><td>PerplexityBot</td><td><a href="https://www.perplexity.com/perplexitybot.json">https://www.perplexity.com/perplexitybot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Google</td><td>学習</td><td>Google-Extended</td><td>Google-Extended</td><td><a href="https://developers.google.com/static/search/apis/ipranges/googlebot.json">https://developers.google.com/static/search/apis/ipranges/googlebot.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/special-crawlers.json">https://developers.google.com/static/search/apis/ipranges/special-crawlers.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json">https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json">https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Google</td><td>ユーザー操作</td><td>Gemini-Deep-Research</td><td>Gemini-Deep-Research</td><td><a href="https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json">https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json">https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Google</td><td>その他</td><td>Google-CloudVertexBot</td><td>Google-CloudVertexBot</td><td><a href="https://developers.google.com/static/search/apis/ipranges/special-crawlers.json">https://developers.google.com/static/search/apis/ipranges/special-crawlers.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Google</td><td>その他</td><td>GoogleOther</td><td>GoogleOther</td><td><a href="https://developers.google.com/static/search/apis/ipranges/googlebot.json">https://developers.google.com/static/search/apis/ipranges/googlebot.json</a><br><a href="https://developers.google.com/static/search/apis/ipranges/special-crawlers.json">https://developers.google.com/static/search/apis/ipranges/special-crawlers.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Google</td><td>検索</td><td>Googlebot</td><td>Googlebot</td><td><a href="https://developers.google.com/static/search/apis/ipranges/googlebot.json">https://developers.google.com/static/search/apis/ipranges/googlebot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Google</td><td>検索</td><td>Google-InspectionTool</td><td>Google-InspectionTool</td><td><a href="https://developers.google.com/static/search/apis/ipranges/googlebot.json">https://developers.google.com/static/search/apis/ipranges/googlebot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Microsoft</td><td>検索</td><td>bingbot</td><td>bingbot</td><td><a href="https://www.bing.com/toolbox/bingbot.json">https://www.bing.com/toolbox/bingbot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Apple</td><td>学習</td><td>Applebot-Extended</td><td>Applebot-Extended</td><td><a href="https://search.developer.apple.com/applebot.json">https://search.developer.apple.com/applebot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Apple</td><td>検索</td><td>Applebot</td><td>Applebot</td><td><a href="https://search.developer.apple.com/applebot.json">https://search.developer.apple.com/applebot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>DuckDuckGo</td><td>検索</td><td>DuckDuckBot</td><td>DuckDuckBot</td><td><a href="https://duckduckgo.com/duckduckbot.json">https://duckduckgo.com/duckduckbot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Common Crawl</td><td>学習</td><td>CCBot</td><td>CCBot</td><td><a href="https://index.commoncrawl.org/ccbot.json">https://index.commoncrawl.org/ccbot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Meta</td><td>学習</td><td>meta-externalagent</td><td>meta-externalagent</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Meta</td><td>ユーザー操作</td><td>meta-externalfetcher</td><td>meta-externalfetcher</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Meta</td><td>検索</td><td>meta-webindexer</td><td>meta-webindexer</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Meta</td><td>その他</td><td>meta-externalads</td><td>meta-externalads</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Meta</td><td>その他</td><td>facebookexternalhit</td><td>facebookexternalhit</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Amazon</td><td>学習</td><td>Amazonbot</td><td>Amazonbot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>ByteDance</td><td>学習</td><td>Bytespider</td><td>Bytespider</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Mistral AI</td><td>ユーザー操作</td><td>MistralAI-User</td><td>MistralAI-User</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>You.com</td><td>検索</td><td>YouBot</td><td>YouBot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Exa</td><td>検索</td><td>ExaSearchBot</td><td>ExaSearchBot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Exa</td><td>ユーザー操作</td><td>ExaUser</td><td>ExaUser</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Cohere</td><td>不明</td><td>cohere-ai</td><td>cohere-ai</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>xAI</td><td>不明</td><td>xAI-SearchBot</td><td>xAI-SearchBot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>xAI</td><td>不明</td><td>GrokBot / xAI-Grok</td><td>GrokBot / xAI-Grok</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>DeepSeek</td><td>不明</td><td>DeepSeekBot</td><td>DeepSeekBot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Alibaba</td><td>不明</td><td>Qwenbot</td><td>Qwenbot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Zhipu AI</td><td>不明</td><td>ChatGLM-Spider</td><td>ChatGLM-Spider</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Diffbot</td><td>不明</td><td>Diffbot</td><td>Diffbot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Parallel Web Systems</td><td>検索</td><td>ShapBot</td><td>ShapBot</td><td><a href="https://docs.parallel.ai/resources/shapbot.json">https://docs.parallel.ai/resources/shapbot.json</a></td><td>IP</td><td>2026-10-30</td></tr>
+<tr><td>Parallel Web Systems</td><td>ユーザー操作</td><td>Shap-User</td><td>Shap-User</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>ByteDance</td><td>不明</td><td>TikTokSpider</td><td>TikTokSpider</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Cốc Cốc</td><td>検索</td><td>coccocbot</td><td>coccocbot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Yandex</td><td>検索</td><td>YandexBot / YandexMobileBot</td><td>YandexBot / YandexMobileBot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Huawei</td><td>検索</td><td>PetalBot</td><td>PetalBot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Semrush</td><td>その他</td><td>SemrushBot</td><td>SemrushBot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Ahrefs</td><td>その他</td><td>AhrefsBot / AhrefsSiteAudit</td><td>AhrefsBot / AhrefsSiteAudit</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Moz</td><td>その他</td><td>DotBot</td><td>DotBot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Majestic</td><td>その他</td><td>MJ12bot</td><td>MJ12bot</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Babbar</td><td>その他</td><td>Barkrowler</td><td>Barkrowler</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Palo Alto Networks</td><td>その他</td><td>—</td><td>—</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>migurei (ours)</td><td>その他</td><td>pw-trial-compare</td><td>—</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>migurei (ours)</td><td>その他</td><td>migurei-ci-deploy-check</td><td>—</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Bluesky</td><td>その他</td><td>Cardyb</td><td>Cardyb</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>DeepSeek</td><td>ユーザー操作</td><td>—</td><td>—</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
+<tr><td>Google</td><td>ユーザー操作</td><td>Google</td><td>—</td><td>—</td><td>なし</td><td>2026-10-30</td></tr>
 </tbody>
 </table>
 <p>自分のサイトで、ボットが robots.txt を守り、本物の IP から来ているかを調べる: <a href="https://pw.migurei.ai/ja/check/ai-bots?src=ghpages-bots">AI ボットのアクセス確認（Parallel World）</a>。実際のログでの AI ボットの初回訪問の記録: <a href="https://pw.migurei.ai/ja/research/ai-bot-first-visits?src=ghpages-bots">AI ボットの初回訪問の調査</a>。</p>
